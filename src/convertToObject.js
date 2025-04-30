@@ -6,13 +6,11 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-
   return sourceString
     .split(';')
-    .filter((style) => style.trim())
-    .reduce((acc, style) => {
-      const [key, value] = style.split(':').map((str) => str.trim());
-
+    .map((style) => style.split(':').map((str) => str.trim()))
+    .filter(([key, value]) => key && value)
+    .reduce((acc, [key, value]) => {
       acc[key] = value;
 
       return acc;
