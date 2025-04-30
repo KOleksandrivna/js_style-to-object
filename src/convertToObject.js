@@ -6,10 +6,10 @@
  * @return {object}
  */
 function convertToObject(sourceString) {
-  // write your code here
+
   return sourceString
-    .split(';') // Розбиваємо рядок по ";"
-    .filter((style) => style.trim()) // Видаляємо пусті елементи
+    .split(';')
+    .filter((style) => style.trim())
     .reduce((acc, style) => {
       const [key, value] = style.split(':').map((str) => str.trim());
 
